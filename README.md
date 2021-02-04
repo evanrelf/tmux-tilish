@@ -75,7 +75,7 @@ For further configuration options:
 
 - If you use `nvim` or `vim`, consider [integrating it with `tilish`](#integration-with-vim).
 - If you do not use `vim` or `kak`, consider activating [easy mode](#easy-mode).
-- If you use `kak` or `emacs`, consider activating [prefix mode](#prefix-mode).
+- If you use `kak` or `emacs`, consider activating [prefix mode](#prefix-mode) or [modifier mode](#modifier-mode).
 - If you use `tmux` within `i3wm` or `sway`, see [this section](#usage-inside-i3wm).
 - If you like `dmenu`, check out the [application launcher](#application-launcher).
 - If it doesn't work, check your [terminal settings](#terminal-compatibility).
@@ -179,6 +179,20 @@ Personally, I find the default 500ms timeout somewhat short, and would
 recommend that you increase this to at least a second if you use `tilish`:
 
 	set -g repeat-time 1000
+
+## Modifier mode
+
+The "modifier mode" allows you to customize the `tilish` modifier.
+To activate this mode, you define a modifier prefix in your `tmux.conf`. For
+instance, to use <kbd>Ctrl</kbd> + <kbd>Shift</kbd> as your `tilish` modifier,
+add:
+
+	set -g @tilish-modifier 'C-S'
+
+Actions that would usually be done with <kbd>Alt</kbd> + <kbd>key</kbd> are now
+accomplished with the new modifier + <kbd>key</kbd>. For example, opening a
+split is usually <kbd>Alt</kbd> + <kbd>Enter</kbd>, but with the above modifier
+this becomes <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>.
 
 ## Application launcher
 
