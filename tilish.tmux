@@ -15,7 +15,7 @@
 	legacy="$(tmux -V | grep -E 'tmux (1\.|2\.[0-6])')"
 	
 	# Read user options.
-	for opt in default dmenu easymode navigate navigator prefix shiftnum
+	for opt in default dmenu easymode modifier navigate navigator prefix shiftnum
 	do
 		export "$opt"="$(tmux show-option -gv @tilish-$opt 2>/dev/null)"
 	done
@@ -42,7 +42,13 @@
 	if [ -z "$prefix" ]
 	then
 		bind='bind -n'
-		mod='M-'
+
+		if [ -z "$modifier" ]
+		then
+			mod='M-'
+		else
+			mod="$modifier-"
+		fi
 	else
 		bind='bind -rT tilish'
 		mod=''
